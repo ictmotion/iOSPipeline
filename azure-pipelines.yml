@@ -18,18 +18,18 @@ variables:
 
 steps:
 
-- task: InstallAppleCertificate@2
-  inputs:
-   certSecureFile: '$(p12FileName)'
-   certPwd: '$(p12Password)'
-   keychain: 'temp'
-   deleteCert: true  
+#- task: InstallAppleCertificate@2
+#  inputs:
+#   certSecureFile: '$(p12FileName)'
+#   certPwd: '$(p12Password)'
+#   keychain: 'temp'
+#   deleteCert: true  
 
-- task: InstallAppleProvisioningProfile@1
-  inputs:
-   provisioningProfileLocation: 'secureFiles'
-   provProfileSecureFile: '$(provisioningProfile)'
-   removeProfile: true
+#- task: InstallAppleProvisioningProfile@1
+#  inputs:
+#   provisioningProfileLocation: 'secureFiles'
+#   provProfileSecureFile: '$(provisioningProfile)'
+#   removeProfile: true
 
 - task: CocoaPods@0
   inputs:
@@ -44,7 +44,7 @@ steps:
     xcWorkspacePath: '**/iOSPipeline.xcworkspace'
     xcodeVersion: 'default'
     packageApp: true
-    signingOption: 'manual' # Optional. Options: nosign, default, manual, auto
+    signingOption: 'nosign' #'manual' # Optional. Options: nosign, default, manual, auto
     signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
     provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
 
